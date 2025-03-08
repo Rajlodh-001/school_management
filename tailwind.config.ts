@@ -8,22 +8,9 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       colors: {
-        // background: "var(--background)",
-        // foreground: "var(--foreground)",
-        thmSky:"#C3EBFA",
-        thmSkyLight:"#EDF9FD",
-
-        thmPurple:"#CFCEFF",
-        thmPurpleLight:"#F1F0FF",
-
-        thmYellow:"#FAE27C",
-        thmYellowLight:"#FEFCEB"
+        background: "var(--background)",
+        foreground: "var(--foreground)",
       },
     },
   },

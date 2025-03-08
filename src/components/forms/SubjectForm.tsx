@@ -7,15 +7,16 @@ import InputField from "../InputField";
 import Image from "next/image";
 
 const schema = z.object({
-  name: z.string().min(1, { message: "Class is required !" }),
-  grade: z.string().min(1, { message: "Grade Name is required !" }),
-  capacity: z.string().min(2, { message: "Capacity of the Class required !" }),
-  supervisor: z.string().min(3, { message: "Supervisor's Name is required !" }),
+  name: z.string().min(1, { message: "Subject is required !" }),
+
+  teachers: z.string().min(3, { message: "Teacher's Name is required !" }),
+
+
 });
 
 type Inputs = z.infer<typeof schema>;
 
-const ClassForm = ({
+const SubjectForm = ({
   type,
   data,
 }: {
@@ -37,15 +38,14 @@ const ClassForm = ({
   return (
     <form action="" className="flex flex-col gap-4" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">
-        {/* Create a new Class  */}
-        {type === "create" ? "Create a new Class" : "Update this  Class"}
-        </h1>
+      {type === "create" ? "Create a new Subject" : "Update this  Subject"}
+       </h1>
       <span className="text-xs text-gray-400 font-medium">
         Authentic Information
       </span>
-      <div className="flex justify-between flex-wrap gap-4">
+      <div className="flex justify-around flex-wrap gap-4">
         <InputField
-          label="Class Name"
+          label="Subject Name"
           name="name"
           defaultValue={data?.name}
           register={register}
@@ -53,28 +53,14 @@ const ClassForm = ({
         />
 
         <InputField
-          label="Capacity"
-          name="capacity"
-          defaultValue={data?.capacity}
+          label="Teacher's Name"
+          name="teachersName"
+          defaultValue={data?.teachers}
           register={register}
-          error={errors?.capacity}
+          error={errors?.teachers}
         />
 
-        <InputField
-          label="Grade"
-          name="grade"
-          defaultValue={data?.grade}
-          register={register}
-          error={errors?.grade}
-        />
-
-        <InputField
-          label="Supervisor's Name"
-          name="supervisor"
-          defaultValue={data?.supervisor}
-          register={register}
-          error={errors?.supervisor}
-        />
+     
       </div>
 
       <button className="bg-blue-400 text-white p-2 rounded-md">
@@ -84,4 +70,4 @@ const ClassForm = ({
   );
 };
 
-export default ClassForm;
+export default SubjectForm;
